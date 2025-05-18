@@ -4,12 +4,12 @@ __pycache__/
 .env
 *.pyc
 *.log
+staticfiles/
 
 
 aws/.env
 old_settings/
 node_modules
-staticfiles/
 # Ignore database files
 *.sqlite3
 *.sql
