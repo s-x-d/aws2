@@ -1,0 +1,27 @@
+.venv/
+.idea/
+__pycache__/
+.env
+*.pyc
+*.log
+
+
+aws/.env
+old_settings/
+node_modules
+staticfiles/
+# Ignore database files
+*.sqlite3
+*.sql
+*.dump
+*.db
+*.pgdata
+.junie/
+_notes.txt
+aws_deployment.md
+aws/settings/local.py
+rootkey.csv
+.ebextensions/
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
