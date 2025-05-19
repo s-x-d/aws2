@@ -1,0 +1,1 @@
+web: gunicorn aws2.wsgi --log-file -
