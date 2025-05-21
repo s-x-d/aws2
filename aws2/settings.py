@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+#import dj_database_url
 from dotenv import load_dotenv
 
 load_dotenv() # Load environment variables from .env file
@@ -67,13 +68,29 @@ WSGI_APPLICATION = 'aws2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# Uses DATABASE_URL from .env file for PostgreSQL configuration
+# Format: postgres://username:password@hostname:port/database_name
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#     'default': dj_database_url.config(
+#         default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # Fallback to SQLite if DATABASE_URL is not set
+#         conn_max_age=600,  # Keep connections alive for 10 minutes
+#         ssl_require=False,  # Don't require SSL for local development
+#     )
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+    }
+}
+
 
 
 # Password validation

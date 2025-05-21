@@ -7,6 +7,9 @@ __pycache__/
 staticfiles/
 
 *.csv
+rxh-key
+rxh-key.pub
+README.md
 
 aws/.env
 old_settings/
